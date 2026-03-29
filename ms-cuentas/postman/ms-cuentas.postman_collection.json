@@ -1,0 +1,73 @@
+{
+  "info": {
+    "name": "ms-cuentas",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Clientes - Crear",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/clientes",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"clienteId\": 1,\n  \"nombre\": \"Jose Lema\",\n  \"identificacion\": \"1234567890\",\n  \"estado\": true\n}"
+        }
+      }
+    },
+    {
+      "name": "Cuentas - Crear",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/cuentas",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"numeroCuenta\": \"225487\",\n  \"tipoCuenta\": \"Corriente\",\n  \"saldoInicial\": 100,\n  \"estado\": true,\n  \"clienteId\": 1\n}"
+        }
+      }
+    },
+    {
+      "name": "Movimientos - Crear",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/movimientos",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"numeroCuenta\": \"225487\",\n  \"tipoMovimiento\": \"Deposito\",\n  \"valor\": 600\n}"
+        }
+      }
+    },
+    {
+      "name": "Reportes",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/reportes?fecha=2022-02-08,2022-02-10&clienteId=1"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8081"
+    }
+  ]
+}
+
